@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/background"
     tools:context=".presentation.ui.MainActivity">
 
     <EditText
@@ -20,8 +19,8 @@
         android:elevation="10dp"
         android:inputType="number"
         android:paddingLeft="10dp"
-        android:textColor="@color/yellow"
-        android:textColorHint="@color/white"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

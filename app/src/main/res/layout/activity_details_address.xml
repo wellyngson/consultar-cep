@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/background"
     tools:context=".presentation.ui.DetailsAddress">
 
     <TextView
@@ -29,7 +28,7 @@
         android:layout_height="55dp"
         android:layout_marginTop="64dp"
         android:gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="18sp"
         tools:text="Rua Antônio Soares Filho"
         android:background="@drawable/edit_text_bakground"
@@ -43,7 +42,7 @@
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="18sp"
         tools:text="Centenário"
         android:background="@drawable/edit_text_bakground"
@@ -57,7 +56,7 @@
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="18sp"
         tools:text="Campina Grande - PB"
         android:background="@drawable/edit_text_bakground"
