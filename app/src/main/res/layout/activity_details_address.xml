@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:padding="16dp"
+    tools:context=".presentation.ui.DetailsAddress">
+
+    <TextView
+        android:id="@+id/tvData"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/text_view_data_background"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:text="DADOS DO CEP"
+        android:layout_marginTop="48dp"
+        android:elevation="10dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRoad"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="64dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        tools:text="Rua Antônio Soares Filho"
+        android:background="@drawable/edit_text_bakground"
+        app:layout_constraintEnd_toEndOf="@id/tvData"
+        app:layout_constraintStart_toStartOf="@id/tvData"
+        app:layout_constraintTop_toBottomOf="@id/tvData" />
+
+    <TextView
+        android:id="@+id/tvDistrict"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        tools:text="Centenário"
+        android:background="@drawable/edit_text_bakground"
+        app:layout_constraintEnd_toEndOf="@id/tvData"
+        app:layout_constraintStart_toStartOf="@id/tvData"
+        app:layout_constraintTop_toBottomOf="@id/tvRoad" />
+
+    <TextView
+        android:id="@+id/tvCityAndState"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        tools:text="Campina Grande - PB"
+        android:background="@drawable/edit_text_bakground"
+        app:layout_constraintEnd_toEndOf="@id/tvData"
+        app:layout_constraintStart_toStartOf="@id/tvData"
+        app:layout_constraintTop_toBottomOf="@id/tvDistrict" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

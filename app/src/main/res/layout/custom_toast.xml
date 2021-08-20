@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/toast_sucess"
+    android:id="@+id/containerToast">
+    
+    <ImageView
+        android:id="@+id/ivCheck"
+        app:layout_constraintTop_toTopOf="@id/containerToast"
+        app:layout_constraintStart_toStartOf="@id/containerToast"
+        app:layout_constraintBottom_toBottomOf="@id/containerToast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_check"/>
+
+    <TextView
+        android:id="@+id/tvToastMessage"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="Cep consultado com sucesso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ivCheck"
+        app:layout_constraintBottom_toBottomOf="@id/ivCheck"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/ivCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
