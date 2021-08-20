@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/wellyngson.e.guedes/Documents/ConsultarCEP/app/src/main/res/drawable/button_background.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/wellyngson.e.guedes/Documents/ConsultarCEP/app/src/main/res/drawable/edit_text_bakground.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/wellyngson.e.guedes/Documents/ConsultarCEP/app/src/main/res/drawable/ic_check.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/wellyngson.e.guedes/Documents/ConsultarCEP/app/src/main/res/drawable/ic_location_searching.xml" value="0.19583333333333333" />
@@ -11,7 +12,7 @@
         <entry key="..\:/Users/wellyngson.e.guedes/Documents/ConsultarCEP/app/src/main/res/drawable/toast_sucess.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/wellyngson.e.guedes/Documents/ConsultarCEP/app/src/main/res/drawable/toast_warning.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/wellyngson.e.guedes/Documents/ConsultarCEP/app/src/main/res/layout/activity_details_address.xml" value="0.22" />
-        <entry key="..\:/Users/wellyngson.e.guedes/Documents/ConsultarCEP/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/wellyngson.e.guedes/Documents/ConsultarCEP/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/Users/wellyngson.e.guedes/Documents/ConsultarCEP/app/src/main/res/layout/custom_dialog.xml" value="0.1796875" />
         <entry key="..\:/Users/wellyngson.e.guedes/Documents/ConsultarCEP/app/src/main/res/layout/custom_toast.xml" value="0.3333333333333333" />
       </map>
