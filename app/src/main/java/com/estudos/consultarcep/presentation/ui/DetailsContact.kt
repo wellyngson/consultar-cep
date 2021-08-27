@@ -3,10 +3,10 @@ package com.estudos.consultarcep.presentation.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.estudos.consultarcep.R
-import com.estudos.consultarcep.data.model.Cep
+import com.estudos.consultarcep.data.model.Contact
 import com.estudos.consultarcep.databinding.ActivityDetailsAddressBinding
 
-class DetailsAddress : AppCompatActivity() {
+class DetailsContact : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailsAddressBinding
 
@@ -15,11 +15,11 @@ class DetailsAddress : AppCompatActivity() {
         binding = ActivityDetailsAddressBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val address = intent.getSerializableExtra("address") as Cep
-
-        binding.tvRoad.text = "${address.logradouro}"
-        binding.tvDistrict.text = "${address.bairro}"
-        binding.tvCityAndState.text = "${address.localidade} - ${address.uf}"
+        val contact = intent.getParcelableExtra<Contact>("contact")
+        binding.tvName.text = contact?.name
+        binding.tvRoad.text = contact?.address?.road
+        binding.tvDistrict.text = contact?.address?.district
+        binding.tvCityAndState.text = "${contact?.address?.city} - ${contact?.address?.state}"
     }
 
     override fun finish() {

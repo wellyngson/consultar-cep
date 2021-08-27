@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.estudos.consultarcep.data.model.Cep
+import com.estudos.consultarcep.data.model.Contact
 import com.estudos.consultarcep.domain.usecase.CepUseCase
 import kotlinx.coroutines.launch
 
@@ -12,17 +12,17 @@ class MainViewModel(
     private val useCase: CepUseCase
 ): ViewModel() {
 
-    private val cepMutableLiveData = MutableLiveData<Cep>()
-    val cepLiveData: LiveData<Cep> = cepMutableLiveData
+    private val addressMutableLiveData = MutableLiveData<List<Contact>>()
+    val addressLiveData: LiveData<List<Contact>> = addressMutableLiveData
 
-    fun init(cep: String) {
-        getAddress(cep)
+    fun init(postCode: String) {
+        getAddress(postCode)
     }
 
-    private fun getAddress(cep: String) {
+    private fun getAddress(postCode: String) {
         viewModelScope.launch {
-            val address = useCase.getAddress(cep)
-            cepMutableLiveData.postValue(address)
+            val contact = useCase.getAddress(postCode)
+            addressMutableLiveData.postValue(contact)
         }
     }
 }

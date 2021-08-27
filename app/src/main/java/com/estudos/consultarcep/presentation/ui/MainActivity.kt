@@ -4,76 +4,73 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.estudos.consultarcep.databinding.ActivityMainBinding
 import com.estudos.consultarcep.presentation.viewmodel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import com.estudos.consultarcep.presentation.ui.DetailsAddress as DetailsAddress
+import com.estudos.consultarcep.presentation.ui.DetailsContact as DetailsAddress
 import android.widget.TextView
 import androidx.core.app.ActivityOptionsCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.estudos.consultarcep.R
-import com.estudos.consultarcep.core.Constants.ERROR
-import com.estudos.consultarcep.core.Constants.SUCCESS
-import com.estudos.consultarcep.core.Constants.WARNING
+import com.estudos.consultarcep.data.model.Contact
+import com.estudos.consultarcep.databinding.ActivityMainBinding
+import com.estudos.consultarcep.presentation.adapter.ContactAdapter
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainViewModel by viewModel()
+    private val adapter by lazy { ContactAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    }
 
+    override fun onResume() {
+        super.onResume()
+
+        setupAdapter()
         insertListeners()
+        updateList()
     }
 
     private fun insertListeners() {
-        binding.btSearchPostCode.setOnClickListener {
-            val cepUser = binding.etInputPostCode.text.toString()
-            if (cepUser == null || cepUser == "") {
-                showToast(ERROR, "Insira um CEP correto")
-            } else {
-                viewModel.init(cepUser)
-                showToast(SUCCESS, "CEP consultado com sucesso")
-                changeScreen()
-            }
-        }
-    }
-
-    private fun changeScreen() {
-        viewModel.cepLiveData.observe(this) {
-            val intent = Intent(this, DetailsAddress::class.java).apply {
-                putExtra("address", it)
-            }
+        binding.ftFloatingButton.setOnClickListener {
+            val intent =
+                Intent(this, ViewContact::class.java)
 
             val options = ActivityOptionsCompat.makeCustomAnimation(
                 this,
                 R.anim.slide_in_down,
                 R.anim.slide_out_left
             )
+
             startActivity(intent, options.toBundle())
         }
     }
 
-    private fun showToast(type: Int, message: String) {
-        val toast = Toast(this)
-        val layout =
-            layoutInflater.inflate(R.layout.custom_toast, findViewById(R.id.containerToast))
+    private fun setupAdapter() {
+        binding.rvRecyclerView.adapter = adapter
+        binding.rvRecyclerView.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                DividerItemDecoration.HORIZONTAL
+            )
+        )
+        binding.rvRecyclerView.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+    }
 
-        when (type) {
-            SUCCESS -> layout.background = getDrawable(R.drawable.toast_sucess)
-            WARNING -> layout.background = getDrawable(R.drawable.toast_warning)
-            ERROR -> layout.background = getDrawable(R.drawable.toast_error)
-            else -> throw IllegalStateException("Erro de tipo $message")
-        }
+    private fun updateList() {
+        viewModel.addressLiveData.observe(this, {
+            adapter.submitList(it)
+        })
+    }
 
-        layout.findViewById<TextView>(R.id.tvToastMessage).text = message
-
-        toast.apply {
-            duration = Toast.LENGTH_LONG
-            view = layout
-            show()
-        }
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_down)
     }
 }

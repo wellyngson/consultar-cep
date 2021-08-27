@@ -3,17 +3,17 @@ package com.estudos.consultarcep.data.model
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-data class Cep(
+data class Address(
     @SerializedName("cep")
-    val cep: String?,
+    var postCode: String?,
     @SerializedName("logradouro")
-    val logradouro: String?,
+    var road: String?,
     @SerializedName("bairro")
-    val bairro: String?,
+    val district: String?,
     @SerializedName("localidade")
-    val localidade: String?,
+    val city: String?,
     @SerializedName("uf")
-    val uf: String?,
+    val state: String?,
     @SerializedName("ddd")
     val ddd: String?,
     @SerializedName("erro")

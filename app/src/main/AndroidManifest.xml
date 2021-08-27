@@ -14,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConsultarCEP">
         <activity
-            android:name=".presentation.ui.DetailsAddress"
+            android:name=".presentation.ui.ViewContact"
+            android:exported="true" />
+        <activity
+            android:name=".presentation.ui.DetailsContact"
             android:exported="true" />
         <activity
             android:name=".presentation.ui.MainActivity"

@@ -1,11 +1,13 @@
 package com.estudos.consultarcep.data.di
 
 import android.util.Log
+import com.estudos.consultarcep.data.appdatabase.AppDataBase
 import com.estudos.consultarcep.data.repository.RepositoryImpl
 import com.estudos.consultarcep.data.services.CepServices
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -17,7 +19,7 @@ object DataModule {
     private const val OK_HTTP = "OkHttp"
 
     fun load() {
-        loadKoinModules(networkModules() + repositoriesModule())
+        loadKoinModules(networkModules() + repositoriesModule() + daoModule())
     }
 
     private fun networkModules(): Module {
@@ -45,7 +47,13 @@ object DataModule {
 
     private fun repositoriesModule(): Module {
         return module {
-            factory { RepositoryImpl(get()) }
+            factory { RepositoryImpl(get(), get()) }
+        }
+    }
+
+    private fun daoModule(): Module {
+        return module {
+            single { AppDataBase.getDataBase(androidContext()).contactDao }
         }
     }
 
